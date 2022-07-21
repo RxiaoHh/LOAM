@@ -27,17 +27,21 @@ catkin_package(
 )
 
 
-add_executable(scanRegistration src/scanRegistration.cpp)
-target_link_libraries(scanRegistration ${catkin_LIBRARIES} ${PCL_LIBRARIES} ${OpenCV_LIBS})
+# add_executable(scanRegistration src/scanRegistration.cpp)
+# target_link_libraries(scanRegistration ${catkin_LIBRARIES} ${PCL_LIBRARIES} ${OpenCV_LIBS})
 
-add_executable(laserOdometry src/laserOdometry.cpp)
-target_link_libraries(laserOdometry ${catkin_LIBRARIES} ${PCL_LIBRARIES} ${OpenCV_LIBS})
+# add_executable(laserOdometry src/laserOdometry.cpp)
+# target_link_libraries(laserOdometry ${catkin_LIBRARIES} ${PCL_LIBRARIES} ${OpenCV_LIBS})
 
-add_executable(laserMapping src/laserMapping.cpp)
-target_link_libraries(laserMapping ${catkin_LIBRARIES} ${PCL_LIBRARIES} ${OpenCV_LIBS})
+# add_executable(laserMapping src/laserMapping.cpp)
+# target_link_libraries(laserMapping ${catkin_LIBRARIES} ${PCL_LIBRARIES} ${OpenCV_LIBS})
 
-add_executable(transformMaintenance src/transformMaintenance.cpp)
-target_link_libraries(transformMaintenance ${catkin_LIBRARIES} ${PCL_LIBRARIES} ${OpenCV_LIBS})
+# add_executable(transformMaintenance src/transformMaintenance.cpp)
+# target_link_libraries(transformMaintenance ${catkin_LIBRARIES} ${PCL_LIBRARIES} ${OpenCV_LIBS})
+
+add_executable(corrPointPlane src/corrPointPlane.cpp)
+target_link_libraries(corrPointPlane ${catkin_LIBRARIES} ${PCL_LIBRARIES} ${OpenCV_LIBS})
+
 
 if (CATKIN_ENABLE_TESTING)
   find_package(rostest REQUIRED)
@@ -53,10 +57,13 @@ if (CATKIN_ENABLE_TESTING)
   add_rostest(${PROJECT_BINARY_DIR}/test/loam.test
     DEPENDENCIES
       ${PROJECT_NAME}_test_data
-      scanRegistration
-      laserOdometry
-      laserMapping
-      transformMaintenance)
+      # scanRegistration
+      # laserOdometry
+      # laserMapping
+      # transformMaintenance
+      
+      corrPointPlane
+   )
 endif()
 
 
